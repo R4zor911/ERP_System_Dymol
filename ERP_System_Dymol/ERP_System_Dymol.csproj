@@ -114,6 +114,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Cotizacion\Cotizaciones.aspx" />
+    <Content Include="Cotizacion\ServicioCotizaciones.asmx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -129,6 +130,7 @@
     <Content Include="Hola201896.js" />
     <Content Include="HtmlPage1.html" />
     <Content Include="js\Cliente.js" />
+    <Content Include="js\Cotizaciones.js" />
     <Content Include="Plantilla\fonts\AlegreyaSansSC-Regular.eot" />
     <Content Include="Plantilla\fonts\AlegreyaSansSC-Regular.ttf" />
     <Content Include="Plantilla\fonts\AlegreyaSansSC-Regular.woff" />
@@ -265,6 +267,11 @@
     <Compile Include="Cotizacion\Cotizaciones.aspx.designer.cs">
       <DependentUpon>Cotizaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cotizacion\ServicioCotizaciones.asmx.cs">
+      <DependentUpon>ServicioCotizaciones.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Cotizacion\TablaCotizaciones.cs" />
     <Compile Include="DatosCliente.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

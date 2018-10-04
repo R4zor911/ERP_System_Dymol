@@ -11,7 +11,8 @@ namespace ERP_System_Dymol.Cotizacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //string date = DateTime.Now.ToString("dd/MM/yyyy");
+            //fecha.Value = date;
         }
     }
 }
