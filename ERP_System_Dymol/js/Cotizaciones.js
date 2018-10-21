@@ -38,11 +38,11 @@ function LoadTable() {
                     { 'data': 'IdCliente' },
                     {
                         'data': null,
-                        'defaultContent': "<img src='../img/Delete.png' onclick='Delete()' />"
+                        'defaultContent': "<img src='../img/Del.png' onclick='Delete()' style='width: 22px; cursor:pointer;' />"
                     },
                     {
                         'data': null,
-                        'defaultContent':"<img src='../img/View.png' onclick='View()' />"
+                        'defaultContent':"<img src='../img/Pre.png' onclick='View()' style='width: 22px; cursor:pointer;' />"
                     }
                     //
                 ]
@@ -217,7 +217,7 @@ function InsertRow(tblName) {
     td3.innerHTML = strHtml3.replace(/!count!/g, countID);
     //CREAR   CELDA 4     BOTON ELIMINAR
     var td4 = document.createElement("TD");
-    var strHtml4 = "<img src=\"../img/Remove.png\" onclick=\"DeleteRow()\" style=\"width: 22px; cursor:pointer;\" />";
+    var strHtml4 = "<img src=\"../img/Rem.png\" onclick=\"DeleteRow()\" style=\"width: 22px; cursor:pointer;\" />";
     td4.innerHTML = strHtml4;
 
     // APPEND   Data to row

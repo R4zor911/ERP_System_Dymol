@@ -237,7 +237,7 @@
                               <td><input id="txtcosto" name="costo" type="text" class="costo form-control " required" /></td>
                               <td class="text-right">
                                   <button type="button" class="btn-link" data-toggle="tooltip" data-placement="right" title="Agrega más lineas" onclick="InsertRow('tblQuotation')">
-                                            <img src="../img/Add.png" />
+                                            <img src="../img/Add.png" style="width: 22px; cursor:pointer;" />
                                         </button>
                               </td>
                           </tr>
