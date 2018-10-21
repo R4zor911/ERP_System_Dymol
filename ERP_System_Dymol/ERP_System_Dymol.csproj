@@ -131,10 +131,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Hola201896.js" />
     <Content Include="HtmlPage1.html" />
-    <Content Include="img\Add.png" />
-    <Content Include="img\Delete.png" />
-    <Content Include="img\Remove.png" />
-    <Content Include="img\View.png" />
     <Content Include="js\Cliente.js" />
     <Content Include="js\Cotizaciones.js" />
     <Content Include="js\jquery.dataTables.js" />
@@ -330,6 +326,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
