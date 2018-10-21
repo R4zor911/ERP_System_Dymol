@@ -38,13 +38,13 @@ function LoadTable() {
                     { 'data': 'IdCliente' },
                     {
                         'data': null,
-                        'defaultContent': "<button onclick='Delete()' >Eliminar</button>"
+                        'defaultContent': "<img src='../img/Delete.png' onclick='Delete()' />"
                     },
                     {
                         'data': null,
-                        'defaultContent':"<button onclick='Edit'>Editar</button>"
+                        'defaultContent':"<img src='../img/View.png' onclick='View()' />"
                     }
-
+                    //
                 ]
 
             });
