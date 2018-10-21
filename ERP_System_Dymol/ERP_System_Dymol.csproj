@@ -112,6 +112,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Cotizaciones.css" />
+    <Content Include="Content\jquery.dataTables.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Cotizacion\Cotizaciones.aspx" />
     <Content Include="Cotizacion\ServicioCotizaciones.asmx" />
@@ -131,6 +133,7 @@
     <Content Include="HtmlPage1.html" />
     <Content Include="js\Cliente.js" />
     <Content Include="js\Cotizaciones.js" />
+    <Content Include="js\jquery.dataTables.js" />
     <Content Include="Plantilla\fonts\AlegreyaSansSC-Regular.eot" />
     <Content Include="Plantilla\fonts\AlegreyaSansSC-Regular.ttf" />
     <Content Include="Plantilla\fonts\AlegreyaSansSC-Regular.woff" />
@@ -260,6 +263,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cotizacion\BuscarCliente.cs" />
     <Compile Include="Cotizacion\Cotizaciones.aspx.cs">
       <DependentUpon>Cotizaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -322,6 +326,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>

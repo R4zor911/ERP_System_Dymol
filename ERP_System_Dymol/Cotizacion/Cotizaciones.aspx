@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="../Plantilla/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="../Plantilla/css/style.css">
 
+
     <%-- Jquery Table CSS --%>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link href="../Content/jquery.dataTables.css" rel="stylesheet" />
 
     <script>window.jQuery || document.write('<script src="../Scripts/jquery-3.3.1.min.js"><\/script>')</script>
     <%--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>--%>
@@ -27,22 +28,21 @@
 
 
     <%-- Jquery Table JS --%>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src="../js/jquery.dataTables.js"></script>
     <script src="../js/Cotizaciones.js"></script>
 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <%--<div class="container">--%>
         <div class="page-header">
             <h1 class="all-tittles" style="text-align:left">Maquinados Dymol   <small>Cotizaciones</small></h1>
         </div>
-    </div>
-    
+<%--    </div>--%>
         <button id="nuevoCliente" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Agregar</button>
-    <hr />
     
-    <table id="mytable" class="table"> 
+    <hr />
+    <table id="mytable" class="table table-responsive"> 
     <thead> 
         <tr> 
             <th>Fecha</th> 
@@ -54,6 +54,8 @@
             <th>Impuesto</th>
             <th>Total</th>
             <th>IdCliente</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
         </tr> 
     </thead>
         <tbody>
@@ -69,7 +71,9 @@
             <th>Descuento</th>
             <th>Impuesto</th>
             <th>Total</th>
-            <th>IdCliente</th> 
+            <th>IdCliente</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
         </tr> 
     </tfoot> 
 </table>
@@ -98,7 +102,7 @@
 
 
     <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -114,11 +118,16 @@
                   <div class="col-md-2">
                       <label>Tipo de cotización</label>
                   </div>
-                  <div class="col-md-10">
-                      <select ></select>
+                  <div class="col-md-10" style="text-align:left">
+                      <input type="radio" name="tipoc" value="per" onclick="TipeQuotation()" id="persona" > Persona<br>
+                      <input type="radio" name="tipoc" value="emp" onclick="TipeQuotation()" id="empresa" > Empresa<br> 
+                      <input type="radio" name="tipoc" value="sin" onclick="TipeQuotation()" id="noreg" > No registrado<br>
                   </div>
               </div>
           </div>
+          <hr />
+          <h1 id="titulo"></h1>
+          <br />
           <div class="row">
               <div class="form-group">
                   <div class="col-md-2">
@@ -128,140 +137,166 @@
                     <input id="txtBuscar" type="text" class="form-control" />
                   </div>
                   <div class="col-md-4">
-                    <button id="Search" type="button" class="btn btn-primary btn-block">Buscar</button>
+                    <button id="btnBuscar" type="button" class="btn btn-primary btn-block" onclick="Search()">Buscar</button>
                   </div>
               </div>
           </div>
-          
+          <br />
           <div class="row">
               <div class="form-group">
-
+                  <div class="col-md-2">
+                      <label>Fecha</label>
+                  </div>
+                  <div class="col-md-4">
+                      <input id="txtFecha" type="date" class="form-control" />
+                  </div>
+                 <div class="col-md-2">
+                     <label>ID Cliente</label>
+                 </div>
+                  <div class="col-md-4">
+                      <input id="txtIdCliente" type="text" class="form-control" />
+                  </div>
               </div>
           </div>
+          <br />
           <div class="row">
               <div class="form-group">
-
+                  <div class="col-md-2">
+                      <label>Nombre</label>
+                  </div>
+                  <div class="col-md-10">
+                      <input id="txtNombre" type="text" class="form-control" />
+                  </div>
               </div>
           </div>
+          <br />
           <div class="row">
               <div class="form-group">
-
+                  <div class="col-md-2">
+                      <label>Estado</label>
+                  </div>
+                  <div class="col-md-10">
+                      <input id="txtEstado" type="text" class="form-control" />
+                      <%--<select id="txtEstado" class="form-control">
+                          <option value="-1">-Seleccione un estado-</option>
+                          <option value="1">Tamaulipas</option>
+                      </select>--%>
+                  </div>
               </div>
           </div>
+          <br />
           <div class="row">
               <div class="form-group">
+                  <div class="col-md-2">
+                      <label>Ciudad</label>
+                  </div>
+                  <div class="col-md-10">
+                      <input id="txtCiudad" type="text" class="form-control" />
 
+                  </div>
               </div>
           </div>
+          <br />
           <div class="row">
               <div class="form-group">
-
+                  <div class="col-md-2">
+                      <label>C.P.</label>
+                  </div>
+                  <div class="col-md-4">
+                      <input id="txtCP" type="text" maxlength="10" class="form-control" />
+                  </div>
+                  <div class="col-md-2">
+                      <label>Dirección</label>
+                  </div>
+                  <div class="col-md-4">
+                      <textarea id="txtDireccion" rows="3" maxlength="50" class="form-control" style="width:100%"></textarea>
+                  </div>
               </div>
           </div>
+          <br />
           <div class="row">
               <div class="form-group">
-
+                  
               </div>
           </div>
+          <br />
           <div class="row">
               <div class="form-group">
-
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th>Servicio</th>
+                              <th>Descripcion</th>
+                              <th>Costo</th>
+                          </tr>
+                      </thead>
+                      <tbody id="tblQuotation">
+                          <tr>
+                              <td><input id="txtnombre" name="nombre" type="text" class="nombre form-control" required /></td>
+                              <td><input id="txtdescripcion" name="descripcion" type="text" class="descripcion form-control" required/></td>
+                              <td><input id="txtcosto" name="costo" type="text" class="costo form-control " required" /></td>
+                              <td class="text-right">
+                                  <button type="button" class="btn-link" data-toggle="tooltip" data-placement="right" title="Agrega más lineas" onclick="InsertRow('tblQuotation')">
+                                            <img src="../img/Add.png" />
+                                        </button>
+                              </td>
+                          </tr>
+                          <%-- AQUI SE AGREGAN --%>
+                      </tbody>
+                  </table>
+                  <%--<button id="test" type="button" class="btn btn-primary" onclick="Subtotal('tblQuotation')">Prueba</button>--%>
               </div>
           </div>
+          <hr />
+          <br />
           <div class="row">
               <div class="form-group">
-
+                  <div class="col-md-2">
+                      <label>Subtotal $:</label>
+                  </div>
+                  <div class="col-md-4">
+                      <input id="txtSubtotal" type="number" class="form-control" min="0.00" max="1000000.00" step="0.01" onclick="Subtotal('tblQuotation')"  />
+                      <small class="text-capitalize">Click en el campo para obtener subtotal.</small>
+                  </div>
+                  <div class="col-md-2">
+                      <label>Descuento %:</label>
+                  </div>
+                  <div class="col-md-4">
+                      <input id="txtDescuento" type="number" min="1" max="100" maxlength="3"  class="form-control" />
+                  </div>
               </div>
           </div>
+          <br />
           <div class="row">
               <div class="form-group">
-
+                  <div class="col-md-2">
+                      <label>Impuesto IVA:</label>
+                  </div>
+                  <div class="col-md-4">
+                      <input id="txtImpuesto" type="number" min="1" max="100" maxlength="3" class="form-control" />
+                  </div>
+                  <div class="col-md-2">
+                      <label>Total</label>
+                  </div>
+                  <div class="col-md-4">
+                      <input id="txtTotal" type="number" class="form-control" min="0.00" max="1000000.00" step="0.01" onclick="Total()" />
+                  </div>
               </div>
           </div>
+          <br />
 
+        </div>
 
-
-
-
-
-          <div class="row">
-            <div class="col-md-12">   
-                <div class="col-md-2">
-                    <label>Nombre</label>
-                </div>
-                <div  class="col-md-10">
-                    <input id="txtNombre" type="text" class="form-control" />
-                </div>
-                <br /><br />
-                <div class="col-md-2">
-                    <label>RFC</label>
-                </div>
-                <div class="col-md-10">
-                    <input id="txtRFC" type="text" class="form-control" />
-                </div>
-                <br /><br />
-                <div class="col-md-2">
-                    <label>Direccion</label>
-                </div>
-                <div id="" class="col-md-2">
-                    <input id="txtColonia" type="text" class="form-control" placeholder="Colonia" />
-                </div>
-                <div class="col-md-3">
-                   <select id="selCiudad" class="form-control">
-                       <option value="-1">-Seleccione una ciudad-</option>
-                       <option value="1">-Reynosa-</option>
-                   </select>
-                </div>
-                <div class="col-md-5">
-                   <select id="selEstado" class="form-control">
-                       <option value="-1">-Seleccione un estado-</option>
-                       <option value="1">Tamaulipas</option>
-                   </select>
-                </div>
-                <br /><br />
-                <div class="col-md-2"></div>
-                <div class="col-md-10">
-                    <select id="selPais" class="form-control">
-                        <option value="-1">-Seleccione un Pais-</option>
-                        <option value="1">Mexico</option>
-                    </select>
-                </div>
-                  <br /><br />
-                <div class="col-md-2">
-                    <label>Puesto</label>
-                </div>
-                <div class="col-md-10">
-                    <input id="txtPuesto" type="text" class="form-control"  />
-                </div>
-                  <br /><br />
-                <div class="col-md-2">
-                    <label>Telefono</label>
-                </div>
-                <div class="col-md-10">
-                    <input id="txtTelefono" type="text" class="form-control"  />
-                </div>
-                  <br /><br />
-                <div class="col-md-2">
-                    <label>Email</label>
-                </div>
-                <div class="col-md-10">
-                    <input id="txtemail" type="email" class="form-control"  />
-                </div>
-                
-
-            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" onclick="InsertQuotation()" >Guardar</button>
         </div>
 
 
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="saveCliente" type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      
     </div>
-  </div>
-</div>
-
 
 
 
