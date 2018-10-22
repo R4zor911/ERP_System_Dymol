@@ -16,8 +16,9 @@ namespace ERP_System_Dymol.Cotizacion
         public string impuesto { get; set; }
         public string total { get; set; }
         public int IdCliente { get; set; }
+        public int id { get; set; }
 
-        public TablaCotizaciones(string fec,string nom,string ciu,string est,string sub, string des,string imp,string tot,int idc)
+        public TablaCotizaciones(string fec,string nom,string ciu,string est,string sub, string des,string imp,string tot,int idc, int idquotation)
         {
             fecha = fec;
             nombre = nom;
@@ -28,7 +29,7 @@ namespace ERP_System_Dymol.Cotizacion
             impuesto = imp;
             total = tot;
             IdCliente = idc;
-
+            id = idquotation;
         }
 
         public TablaCotizaciones()

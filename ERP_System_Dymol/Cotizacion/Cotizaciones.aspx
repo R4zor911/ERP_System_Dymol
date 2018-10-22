@@ -54,6 +54,7 @@
             <th>Impuesto</th>
             <th>Total</th>
             <th>IdCliente</th>
+            <th>ID</th>
             <th>Eliminar</th>
             <th>Modificar</th>
         </tr> 
@@ -72,6 +73,7 @@
             <th>Impuesto</th>
             <th>Total</th>
             <th>IdCliente</th>
+            <th>ID</th>
             <th>Eliminar</th>
             <th>Modificar</th>
         </tr> 
@@ -244,7 +246,6 @@
                           <%-- AQUI SE AGREGAN --%>
                       </tbody>
                   </table>
-                  <%--<button id="test" type="button" class="btn btn-primary" onclick="Subtotal('tblQuotation')">Prueba</button>--%>
               </div>
           </div>
           <hr />

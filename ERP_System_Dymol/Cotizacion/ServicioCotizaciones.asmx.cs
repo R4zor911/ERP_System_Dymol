@@ -55,6 +55,7 @@ namespace ERP_System_Dymol.Cotizacion
                 lista.impuesto = reader["impuesto"].ToString();
                 lista.total = reader["total"].ToString();
                 lista.IdCliente = int.Parse(reader["IdCliente"].ToString());
+                lista.id = int.Parse(reader["id"].ToString());
                 
                 LstCotizaciones.Add(lista);
             }
@@ -181,11 +182,22 @@ namespace ERP_System_Dymol.Cotizacion
             cmd.ExecuteNonQuery();
             SqlCon.Close();
         }
-
         private int SendEmail()
         {
-
             return 0;
+        }
+        [WebMethod]
+        public string DeleteQuotation(int customerId)
+        {
+            string query = "DeleteQuotation";
+            SqlConnection con = new SqlConnection(conex);
+            SqlCommand cmd = new SqlCommand(query,con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id",customerId);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            return "";
         }
 
 

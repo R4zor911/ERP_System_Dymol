@@ -4,9 +4,34 @@
 
     StartControlls();
 
+    $("#mytable").on('click', '#btnDel', function () {
+        // Obtener valores de celda seleccionada
+        //var table = $('#mytable').DataTable();
+        //var d = table.row('tr').data();
 
-    
+        //var table = $('#mytable').DataTable();
+        //var id = $.map(table.rows('.selected').data(), function (item) {
+        //    return item[9]
+        //});
+        //alert(id.toString());
 
+        
+        var confirmation = confirm("Desea eliminar la cotización?");
+        if (confirmation == true) {
+
+            //GET  ID of selected row in table
+            var table = $('#mytable').DataTable();
+            var rowData = table.row($(this).parents('tr')).data();
+            var IdQuotation = JSON.stringify(rowData.id);
+
+            // Remove ROW in Table
+            $(this).parent().parent().remove();
+
+            //Call function Delete to delete quotation in DB.
+            Delete(IdQuotation);
+        }
+
+    });
 });
 
 
@@ -36,13 +61,14 @@ function LoadTable() {
                     { 'data': 'impuesto' },
                     { 'data': 'total' },
                     { 'data': 'IdCliente' },
+                    { 'data': 'id' },
                     {
                         'data': null,
-                        'defaultContent': "<img src='../img/Del.png' onclick='Delete()' style='width: 22px; cursor:pointer;' />"
+                        'defaultContent': "<img src='../img/Del.png' id='btnDel' style='width: 22px; cursor:pointer;' />"
                     },
                     {
                         'data': null,
-                        'defaultContent':"<img src='../img/Pre.png' onclick='View()' style='width: 22px; cursor:pointer;' />"
+                        'defaultContent':"<img src='../img/Pre.png' id='btnPre' style='width: 22px; cursor:pointer;' />"
                     }
                     //
                 ]
@@ -338,53 +364,25 @@ function InsertQuotation() {
         }
 
     });
-
-
-    
+    window.location.href="../Cotizacion/Cotizaciones.aspx"
 }
 
 
-//function insertDetails() {
-
-    //var t = document.getElementById(tbl);
-    //var inputs = t.getElementsByClassName("costo");
-    //var prices = new Array(inputs.length);
-    //for (var i = 0; i < inputs.length; i++) {
-    //    prices[i] = inputs[i].value;
-    //}
-
-    //var t = document.getElementById(tbl);
-    //var inputs = t.getElementsByClassName("costo");
-    //var descriptions = new Array(inputs.length);
-    //for (var i = 0; i < inputs.length; i++) {
-    //    descriptions[i] = inputs[i].value;
-    //}
-
-    //var t = document.getElementById(tbl);
-    ////var r = t.rows[t.rows.length - 1];
-    //var inputs = t.getElementsByClassName("costo");
-    //var names = new Array(inputs.length);
-    //for (var i = 0; i < inputs.length; i++) {
-    //    names[i] = inputs[i].value;
-    //}
 
 
-    //$.ajax({
-    //    type: "POST",
-    //    url: '../Cotizacion/ServicioCotizaciones.asmx/InsertDetails',
-    //    data: "{names:'" + JSON.stringify(names) + "', descriptions:'" + JSON.stringify(descriptions) + "', prices:'" + JSON.stringify(prices) + "' }",
-    //    dataType: "json",
-    //    contentType: "application/json; charset=utf-8",
-    //    success: function () {
-
-    //    },
-    //    error: function () {
-
-    //    }
-
-    //});
-
-//}
+function Delete(id) {
+    $.ajax({
+        type: "POST",
+        url: "../Cotizacion/ServicioCotizaciones.asmx/DeleteQuotation",
+        data: '{customerId: ' + id + '}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function () {
+            alert('Cotización eliminada');
+        }
+    });
+    
+}
 
 
 
