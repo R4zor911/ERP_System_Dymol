@@ -96,10 +96,10 @@
         <nav class="navbar-user-top full-reset">
             <ul class="list-unstyled full-reset">
                 <figure>
-                   <img src="assets/img/user01.png" alt="user-picture" class="img-responsive img-circle center-box">
+                   <img src="https://i.imgur.com/wN2oGbX.png" alt="user-picture" class="img-responsive center-box img-thumbnail">
                 </figure>
                 <li style="color:#fff; cursor:default;">
-                    <span class="all-tittles">Administador</span>
+                    <span class="all-tittles">Administrador</span>
                 </li>
                 <li  class="tooltips-general exit-system-button" data-href="index.html" data-placement="bottom" title="Salir del sistema">
                     <i class="zmdi zmdi-power"></i>
