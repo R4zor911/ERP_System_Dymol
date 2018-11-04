@@ -1,0 +1,116 @@
+﻿body {
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+img {
+    border: 0 !important;
+    outline: none !important;
+}
+
+p {
+    Margin: 0px !important;
+    Padding: 0px !important;
+}
+
+table {
+    border-collapse: collapse;
+    mso-table-lspace: 0px;
+    mso-table-rspace: 0px;
+}
+
+td, a, span {
+    border-collapse: collapse;
+    mso-line-height-rule: exactly;
+}
+
+.ExternalClass * {
+    line-height: 100%;
+}
+
+.em_defaultlink a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+span.MsoHyperlink {
+    mso-style-priority: 99;
+    color: inherit;
+}
+
+span.MsoHyperlinkFollowed {
+    mso-style-priority: 99;
+    color: inherit;
+}
+
+@media only screen and (min-width:481px) and (max-width:699px) {
+    .em_main_table {
+        width: 100% !important;
+    }
+
+    .em_wrapper {
+        width: 100% !important;
+    }
+
+    .em_hide {
+        display: none !important;
+    }
+
+    .em_img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .em_h20 {
+        height: 20px !important;
+    }
+
+    .em_padd {
+        padding: 20px 10px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .em_main_table {
+        width: 100% !important;
+    }
+
+    .em_wrapper {
+        width: 100% !important;
+    }
+
+    .em_hide {
+        display: none !important;
+    }
+
+    .em_img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .em_h20 {
+        height: 20px !important;
+    }
+
+    .em_padd {
+        padding: 20px 10px !important;
+    }
+
+    .em_text1 {
+        font-size: 16px !important;
+        line-height: 24px !important;
+    }
+
+    u + .em_body .em_full_wrap {
+        width: 100% !important;
+        width: 100vw !important;
+    }
+}
+
+#footer {
+    color: black !important;
+    background-color: #fbeb59 !important;
+}

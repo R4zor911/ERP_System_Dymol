@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Revision de Cotización</title>
+    <meta http-equiv="content-type" content="text/html;" charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=yes" />
+
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/VistaCotizacion.css" rel="stylesheet" />
+    
+    
+</head>
+<body>
+
+    <div id="formulario">
+
+        <h1>Vista Previa Cotización</h1>
+        <hr style="border-color:#808080" />
+        <h2 style="text-align:center;" id="Nombre">[Nombre]</h2>
+        <br />
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label for="Fecha">Fecha:</label>
+                <p id="Fecha" class="form-control-static">[FECHA]</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="Direccion">Dirección:</label>
+                <p id="Direccion" class="form-control-static">[DIRECCION]</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="CP">Codigo Postal:</label>
+                <p id="CP" class="form-control-static">[CODIGO POSTAL]</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="Ciudad">Ciudad:</label>
+                <p id="Ciudad" class="form-control-static">[CIUDAD]</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Estado">Estado:</label>
+                <p id="Estado" class="form-control-static">[ESTADO]</p>
+            </div>
+        </div>
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Producto/Servicio</th>
+                    <th>Descripción</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody id="mytable">
+
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="Subtotal">Subtotal:</label>
+                <p id="Subtotal" class="form-control-static">[SUBTOTAL]</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Descuento">Descuento:</label>
+                <p id="Descuento" class="form-control-static">[DESCUENTO]</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="Impuesto">Impuesto:</label>
+                <p id="Impuesto" class="form-control-static">[IMPUESTO]</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Total">Total:</label>
+                <p id="Total" class="form-control-static">[TOTAL]</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button type="button" onclick="AcceptQuotation()" class="btn btn-primary">Aceptar</button>
+                <button type="button" onclick="CancelQuotation()" class="btn btn-danger">Cancelar</button>
+            </div>
+            
+        </div>
+
+    </div>
+    <script src="../Scripts/jquery-3.3.1.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="VistaCotizacion.js"></script>
+    
+</body>
+</html>

@@ -113,9 +113,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Cotizaciones.css" />
+    <Content Include="Content\emailScratch.css" />
+    <Content Include="Content\Error401.css" />
     <Content Include="Content\jquery.dataTables.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\VistaCotizacion.css" />
     <Content Include="Cotizacion\Cotizaciones.aspx" />
+    <Content Include="Cotizacion\CotizacionesStatus.aspx" />
     <Content Include="Cotizacion\ServicioCotizaciones.asmx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -132,12 +136,23 @@
     <Content Include="Hola201896.js" />
     <Content Include="HtmlPage1.html" />
     <Content Include="img\Add.png" />
+    <Content Include="img\background.jpg" />
     <Content Include="img\Del.png" />
+    <Content Include="img\dmlogo.PNG" />
+    <Content Include="img\facebook.png" />
+    <Content Include="img\HeaderHeroDymol.jpg" />
     <Content Include="img\Pre.png" />
     <Content Include="img\Rem.png" />
+    <Content Include="img\twitter.png" />
+    <Content Include="img\youtube.png" />
     <Content Include="js\Cliente.js" />
     <Content Include="js\Cotizaciones.js" />
+    <Content Include="js\CotizacionesStatus.js" />
     <Content Include="js\jquery.dataTables.js" />
+    <Content Include="Otros\emailScratch.html" />
+    <Content Include="Otros\Error401.html" />
+    <Content Include="Otros\VistaCotizacion.html" />
+    <Content Include="Otros\VistaCotizacion.js" />
     <Content Include="Plantilla\fonts\AlegreyaSansSC-Regular.eot" />
     <Content Include="Plantilla\fonts\AlegreyaSansSC-Regular.ttf" />
     <Content Include="Plantilla\fonts\AlegreyaSansSC-Regular.woff" />
@@ -275,6 +290,14 @@
     <Compile Include="Cotizacion\Cotizaciones.aspx.designer.cs">
       <DependentUpon>Cotizaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cotizacion\CotizacionesStatus.aspx.cs">
+      <DependentUpon>CotizacionesStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cotizacion\CotizacionesStatus.aspx.designer.cs">
+      <DependentUpon>CotizacionesStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cotizacion\QuotationPreview.cs" />
     <Compile Include="Cotizacion\ServicioCotizaciones.asmx.cs">
       <DependentUpon>ServicioCotizaciones.asmx</DependentUpon>
       <SubType>Component</SubType>

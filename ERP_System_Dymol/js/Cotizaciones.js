@@ -1,21 +1,10 @@
-﻿$(document).ready(function () {
-    
+﻿document.addEventListener("DOMContentLoaded", function (event) {
     LoadTable();
 
     StartControlls();
 
     $("#mytable").on('click', '#btnDel', function () {
-        // Obtener valores de celda seleccionada
-        //var table = $('#mytable').DataTable();
-        //var d = table.row('tr').data();
 
-        //var table = $('#mytable').DataTable();
-        //var id = $.map(table.rows('.selected').data(), function (item) {
-        //    return item[9]
-        //});
-        //alert(id.toString());
-
-        
         var confirmation = confirm("Desea eliminar la cotización?");
         if (confirmation == true) {
 
@@ -33,8 +22,6 @@
 
     });
 });
-
-
 
 // CARGAR TABLA COTIZACIONES
 function LoadTable() {
@@ -62,6 +49,7 @@ function LoadTable() {
                     { 'data': 'total' },
                     { 'data': 'IdCliente' },
                     { 'data': 'id' },
+                    { 'data': 'peticion'},
                     {
                         'data': null,
                         'defaultContent': "<img src='../img/Del.png' id='btnDel' style='width: 22px; cursor:pointer;' />"
@@ -178,9 +166,7 @@ function Search() {
     $.ajax({
         type: "POST",
         url: '../Cotizacion/ServicioCotizaciones.asmx/Cliente',
-        //data: {
-        //    email: email
-        //},
+        
         data: '{"email":"' + email + '"}',
         dateType: "json",
         contentType: 'application/json; charset=utf-8',
@@ -225,7 +211,7 @@ function Search() {
 // INPUTS DINAMICOS
 var countID = "1";
 function InsertRow(tblName) {
-    //var tbody = document.getElementById(tblName).getElementsByTagName("TBODY")[0];
+    // Recuperar ID de la tabla "mytable"
     var table = document.getElementById(tblName);
     //CREAR  FILA
     var row = document.createElement("TR");
@@ -298,14 +284,8 @@ function Total() {
 
 function InsertQuotation() {
 
+    // Obtener los datos del cliente precargados o nuevo cliente
     var quotation = new Array();
-
-    //var radios = document.getElementsByName('tipoc');
-    //for (var i = 0; i < radios.length; i++) {
-    //    if (radios[i].checked) {
-    //        quotation.tipo = radios[i].value;
-    //    }
-    //}
     quotation[0] = document.getElementById("txtFecha").value;
     quotation[1] = document.getElementById("txtNombre").value;
     quotation[2] = document.getElementById("txtDireccion").value;
@@ -317,21 +297,23 @@ function InsertQuotation() {
     quotation[8] = document.getElementById("txtImpuesto").value + "%";
     quotation[9] = "$" + document.getElementById("txtTotal").value;
     quotation[10] = document.getElementById("txtIdCliente").value;
-    
+
+
+    // Obtener el nombre del producto o servicio de la tabla
     var tnombre = document.getElementById("tblQuotation");
     var inputs = tnombre.getElementsByClassName("nombre");
     var namesArray = new Array(inputs.length);
     for (var i = 0; i < inputs.length; i++) {
         namesArray[i] = inputs[i].value;
     }
-
+    // Obtener las descripciones de la tabla
     var tdescripcion = document.getElementById("tblQuotation");
     var inputs = tdescripcion.getElementsByClassName("descripcion");
     var descriptionsArray = new Array(inputs.length);
     for (var i = 0; i < inputs.length; i++) {
         descriptionsArray[i] = inputs[i].value;
     }
-
+    // Obtener los costos de la tabla
     var tcosto = document.getElementById("tblQuotation");
     var inputs = tcosto.getElementsByClassName("costo");
     var pricesArray = new Array(inputs.length);
@@ -339,12 +321,22 @@ function InsertQuotation() {
         pricesArray[i] = inputs[i].value;
     }
 
+    // Obtener la direccion de correo
+    var address = document.getElementById('txtBuscar').value;
+
+    // Obtener URL de la pagina y añadir inicio de ID, el ID se coloca en el codigo del ASMX.
+    var currentUrl = window.location.host;
+    currentUrl += "/Otros/VistaCotizacion.html?id=";
+
+
     var dataToPass =
     {
         userdata: quotation,
         names: namesArray,
         descriptions: descriptionsArray,
-        prices: pricesArray
+        prices: pricesArray,
+        email: address,
+        url: currentUrl
 
     }
     var jsonText = JSON.stringify(dataToPass);
@@ -357,24 +349,22 @@ function InsertQuotation() {
         contentType: "application/json; charset=utf-8",
         async: false,
         success: function (data) {
-            alert('Exito al insertar!');
+
+            alert('Registro realizado y Cotización enviada');
         },
         error: function () {
-
+            alert('Algo salio mal, vuelva a intentar, en caso de persistir el problema consulte a soporte tecnico.');
         }
-
     });
-    window.location.href="../Cotizacion/Cotizaciones.aspx"
+    window.location.href="/Cotizacion/Cotizaciones.aspx"
 }
-
-
 
 
 function Delete(id) {
     $.ajax({
         type: "POST",
         url: "../Cotizacion/ServicioCotizaciones.asmx/DeleteQuotation",
-        data: '{customerId: ' + id + '}',
+        data: '{Id: ' + id + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function () {
@@ -384,6 +374,22 @@ function Delete(id) {
     
 }
 
+
+function GetUrl() {
+
+    
+    // Obtener url actual.
+    //var url = window.location.href;
+
+    // Obtener Id de url despues de   www.pagina.com/Seccion/Vista?id=[id]
+    //var Id = url.substring(url.lastIndexOf('=') + 1);
+
+    //Obtener Host  Ejemplo:  www.google.com   |  localhost:49919
+    var currentUrl = window.location.host;
+    // Concatenar directorio a url.
+    currentUrl += "/Otros/VistaCotizacion.html?id=";
+    alert(currentUrl);
+}
 
 
 

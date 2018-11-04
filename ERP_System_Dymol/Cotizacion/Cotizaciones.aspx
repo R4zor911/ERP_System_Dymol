@@ -55,6 +55,7 @@
             <th>Total</th>
             <th>IdCliente</th>
             <th>ID</th>
+            <th>Peticion</th>
             <th>Eliminar</th>
             <th>Modificar</th>
         </tr> 
@@ -74,6 +75,7 @@
             <th>Total</th>
             <th>IdCliente</th>
             <th>ID</th>
+            <th>Peticion</th>
             <th>Eliminar</th>
             <th>Modificar</th>
         </tr> 

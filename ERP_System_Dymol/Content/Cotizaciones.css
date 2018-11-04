@@ -1,8 +1,17 @@
-﻿input.currency {
+﻿/*input.currency {
     text-align: right;
     padding-right: 15px;
 }
 
 .input-group .form-control {
     float: none;
+}*/
+
+.modal-body input[type="number"]{
+    font:bold;
+    font-size: 14px;
+    font-family:'Segoe UI';
+
 }
+
+

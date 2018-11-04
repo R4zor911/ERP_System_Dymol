@@ -13,7 +13,8 @@ html, body {
     width: 100%;
     font-size: 16px;
     font-family: "Parrafos" !important;
-    background-color: #fff;
+    background-color:#fff;
+    /*background-color: #2d3945;*/
 }
 .media-hover{padding: 7px; border-radius: 4px;}
 .media-hover:hover{ background-color: #F5F5F5; }
@@ -132,7 +133,7 @@ span.label-mhover{
 .navbar-lateral{
     width: 20%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
@@ -141,11 +142,11 @@ span.label-mhover{
     background-color: #2D3945;
     height: 100% !important;
 }
-.logo{
+.logo {
     height: 55px;
     line-height: 55px;
-    background-color: #E34724;
-    color: #fff;
+    background-color: #ffe600;
+    color: #000000;
     text-align: center;
     font-size: 21px;
     overflow: hidden;
@@ -181,12 +182,18 @@ span.label-mhover{
     -ms-transition: .3s all ease-in-out;
     -webkit-transition: .3s all ease-in-out;
 }
-.nav-lateral-list-menu i{
-    font-size: 18px;
-    line-height: 45px;
-}
-.nav-lateral-list-menu ul li a:hover{
-    background-color: #E75A5A;
+
+    .nav-lateral-list-menu ul li div:hover {
+        background-color: #ffe600;
+        color: black;
+    }
+    .nav-lateral-list-menu i {
+        font-size: 18px;
+        line-height: 45px;
+    }
+.nav-lateral-list-menu ul li a:hover {
+    background-color: #ffe600;
+    color:black;
 }
 .nav-lateral-list-menu ul li a:active,
 .nav-lateral-list-menu ul li a:focus{
@@ -214,20 +221,20 @@ span.label-mhover{
     padding-left: 30px;
 }
 /*Pie de pagina================*/
-.footer{
-    background-color: #33414E;
+.footer {
+    background-color: #2d3945;
     height: auto;
     color: #fff;
     padding-top: 20px;
     margin-top: 70px;
 }
-.footer-copyright{
+.footer-copyright {
     height: 45px;
     line-height: 45px;
     color: #fff;
     text-align: center;
     font-size: 17px;
-    background-color: #2B3D51;
+    background-color: #2d3945;
 }
 .footer-social{
     cursor: pointer;
