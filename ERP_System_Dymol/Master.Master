@@ -71,7 +71,7 @@
                         <ul class="list-unstyled">
                             <li><a href="../Cotizacion/Cotizaciones.aspx"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Cotizaciones y Registros</a></li>
                             <li><a href="../Cotizacion/CotizacionesStatus.aspx"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Estado de Cotizaciones</a></li>
-                            <li><a href="../Cotizacion/CotizacionesDB.aspx"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Base de Datos Cotizaciones</a></li>
+                            <li><a href="../Cotizacion/CotizacionesDB.aspx"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Base de datos</a></li>
                         </ul>
                     </li>
                     <li>

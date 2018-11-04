@@ -40,6 +40,7 @@ namespace ERP_System_Dymol.Cotizacion
         {
             string query = "CargarCotizaciones";
             List<TablaCotizaciones> LstCotizaciones = new List<TablaCotizaciones>();
+            
             TablaCotizaciones lista;
 
             SqlConnection sql = new SqlConnection(conex);            
@@ -460,5 +461,29 @@ namespace ERP_System_Dymol.Cotizacion
         }
 
 
+        [WebMethod]
+        public string QuotationStatus()
+        {
+            string query = "QuotationStatus";
+            List<QuotationStatus> lstQuotation = new List<QuotationStatus>();
+            QuotationStatus lista;
+            SqlConnection con = new SqlConnection(conex);
+            SqlCommand cmd = new SqlCommand(query,con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            con.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                lista = new QuotationStatus();
+                lista.aceptadas = int.Parse(reader["Aceptadas"].ToString());
+                lista.canceladas = int.Parse(reader["Canceladas"].ToString());
+                lstQuotation.Add(lista);
+            }
+            reader.Close();
+            con.Close();
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            string datos = js.Serialize(lstQuotation);
+            return datos;
+        }
     }
 }

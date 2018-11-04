@@ -119,6 +119,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\VistaCotizacion.css" />
     <Content Include="Cotizacion\Cotizaciones.aspx" />
+    <Content Include="Cotizacion\CotizacionesDB.aspx" />
     <Content Include="Cotizacion\CotizacionesStatus.aspx" />
     <Content Include="Cotizacion\ServicioCotizaciones.asmx" />
     <Content Include="Default.aspx" />
@@ -148,8 +149,10 @@
     <Content Include="img\youtube.png" />
     <Content Include="js\Cliente.js" />
     <Content Include="js\Cotizaciones.js" />
+    <Content Include="js\CotizacionesDB.js" />
     <Content Include="js\CotizacionesStatus.js" />
     <Content Include="js\jquery.dataTables.js" />
+    <Content Include="js\plotly-lastest.min.js" />
     <Content Include="Otros\emailScratch.html" />
     <Content Include="Otros\Error401.html" />
     <Content Include="Otros\VistaCotizacion.html" />
@@ -177,6 +180,7 @@
     <Content Include="obj\Debug\ERP_System_Dymol.csproj.CoreCompileInputs.cache" />
     <Content Include="obj\Debug\ERP_System_Dymol.csprojAssemblyReference.cache" />
     <Content Include="Cliente\WebService1.asmx" />
+    <Content Include="js\numeric.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Plantilla\assets\icons\book.ico" />
     <Content Include="Plantilla\assets\icons\mCSB_buttons.png" />
@@ -291,6 +295,13 @@
     <Compile Include="Cotizacion\Cotizaciones.aspx.designer.cs">
       <DependentUpon>Cotizaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cotizacion\CotizacionesDB.aspx.cs">
+      <DependentUpon>CotizacionesDB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cotizacion\CotizacionesDB.aspx.designer.cs">
+      <DependentUpon>CotizacionesDB.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cotizacion\CotizacionesStatus.aspx.cs">
       <DependentUpon>CotizacionesStatus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -298,6 +309,7 @@
     <Compile Include="Cotizacion\CotizacionesStatus.aspx.designer.cs">
       <DependentUpon>CotizacionesStatus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cotizacion\QuotationCharts.cs" />
     <Compile Include="Cotizacion\QuotationPreview.cs" />
     <Compile Include="Cotizacion\ServicioCotizaciones.asmx.cs">
       <DependentUpon>ServicioCotizaciones.asmx</DependentUpon>
